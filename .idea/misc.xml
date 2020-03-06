@@ -8,6 +8,8 @@
       <list>
         <option value="$PROJECT_DIR$/mango-admin/pom.xml" />
         <option value="$PROJECT_DIR$/mango-common/pom.xml" />
+        <option value="$PROJECT_DIR$/maogo-core/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>

@@ -7,12 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mango-admin" />
+        <module name="maogo-core" />
         <module name="mango-common" />
+        <module name="maogo-pom" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="mango-admin" target="1.8" />
       <module name="mango-common" target="1.5" />
+      <module name="mango-planform" target="1.5" />
+      <module name="maogo-core" target="1.5" />
+      <module name="maogo-pom" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

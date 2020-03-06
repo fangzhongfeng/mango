@@ -5,16 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>maogo-core</artifactId>
+    <artifactId>maogo-planform</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-
-    <dependencies>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>mango-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>mango-admin</module>
+        <module>mango-common</module>
+        <module>maogo-core</module>
+    </modules>
 
 </project>
