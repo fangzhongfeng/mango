@@ -55,3 +55,20 @@ mybatis:
   config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
   mapper-locations: classpath:sqlmap/*.xml # 配置 Mapper XML 地址
   type-aliases-package: com.louis.mango.admin.model # 配置数据库实体包路径
+
+#开发的时候用的sql语句在控制台打印
+logging:
+  level:
+    com:
+      louis:
+        mango:
+          admin:
+             dao: debug
+
+
+#pagehelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

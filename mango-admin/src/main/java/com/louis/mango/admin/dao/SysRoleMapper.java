@@ -1,6 +1,9 @@
 package com.louis.mango.admin.dao;
 
+import java.util.List;
+
 import com.louis.mango.admin.model.SysRole;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysRoleMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +17,12 @@ public interface SysRoleMapper {
     int updateByPrimaryKeySelective(SysRole record);
 
     int updateByPrimaryKey(SysRole record);
+    
+    List<SysRole> findPage();
+
+	List<SysRole> findAll();
+	
+	List<SysRole> findPageByName(@Param(value = "name") String name);
+	
+	List<SysRole> findByName(@Param(value = "name") String name);
 }
