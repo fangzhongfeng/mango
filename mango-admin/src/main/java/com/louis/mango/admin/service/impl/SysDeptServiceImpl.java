@@ -3,11 +3,11 @@ package com.louis.mango.admin.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.louis.mango.admin.dao.SysDeptMapper;
-import com.louis.mango.admin.model.SysDept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.louis.mango.admin.dao.SysDeptMapper;
+import com.louis.mango.admin.model.SysDept;
 import com.louis.mango.admin.service.SysDeptService;
 import com.louis.mango.core.page.MybatisPageHelper;
 import com.louis.mango.core.page.PageRequest;

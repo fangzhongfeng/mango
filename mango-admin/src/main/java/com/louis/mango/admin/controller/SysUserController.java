@@ -1,11 +1,13 @@
 package com.louis.mango.admin.controller;
 
+import com.louis.mango.admin.model.SysUser;
+import com.louis.mango.admin.service.SysUserService;
 import com.louis.mango.core.http.HttpResult;
 import com.louis.mango.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.louis.mango.admin.service.SysUserService;
+import java.util.List;
 
 @RestController
 @RequestMapping("user")
@@ -15,7 +17,7 @@ public class SysUserController {
     private SysUserService sysUserService;
     
     @GetMapping(value="/findAll")
-    public Object findAll() {
+    public List<SysUser> findAll() {
         return sysUserService.findAll();
     }
 

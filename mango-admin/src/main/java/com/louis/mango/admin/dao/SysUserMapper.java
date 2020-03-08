@@ -19,6 +19,7 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
     
     List<SysUser> findPage();
+    List<SysUser> findAll();
     
     SysUser findByName(@Param(value = "name") String name);
     
