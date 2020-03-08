@@ -42,5 +42,5 @@ public interface SysUserService extends CurdService<SysUser> {
 	List<SysUser> findAll();
 
 
-	
+
 }

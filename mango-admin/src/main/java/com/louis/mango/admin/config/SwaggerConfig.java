@@ -26,7 +26,11 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo(){
-        return new ApiInfoBuilder().build();
+        return new ApiInfoBuilder()
+                .title("springboot中使用在线文档构建RestFul风格Apis")
+                .description("文档描述")
+                .version("1.1.0")  // 版本
+                .build();
     }
 
 }
