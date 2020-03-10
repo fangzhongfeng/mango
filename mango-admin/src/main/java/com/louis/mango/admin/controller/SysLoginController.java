@@ -10,16 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-
+import com.louis.mango.admin.model.SysUser;
+import com.louis.mango.admin.security.JwtAuthenticatioToken;
 import com.louis.mango.admin.service.SysUserService;
-
+import com.louis.mango.admin.util.PasswordUtils;
+import com.louis.mango.admin.util.SecurityUtils;
+import com.louis.mango.admin.vo.LoginBean;
 import com.louis.mango.common.utils.IOUtils;
+import com.louis.mango.core.http.HttpResult;
 
 /**
  * 登录控制器
@@ -33,8 +39,8 @@ public class SysLoginController {
 	private Producer producer;
 	@Autowired
 	private SysUserService sysUserService;
-	/*	@Autowired
-private AuthenticationManager authenticationManager;*/
+	@Autowired
+	private AuthenticationManager authenticationManager;
 
 	@GetMapping("captcha.jpg")
 	public void captcha(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
@@ -56,7 +62,6 @@ private AuthenticationManager authenticationManager;*/
 	/**
 	 * 登录接口
 	 */
-/*
 	@PostMapping(value = "/login")
 	public HttpResult login(@RequestBody LoginBean loginBean, HttpServletRequest request) throws IOException {
 		String username = loginBean.getAccount();
@@ -87,6 +92,5 @@ private AuthenticationManager authenticationManager;*/
 		JwtAuthenticatioToken token = SecurityUtils.login(request, username, password, authenticationManager);
 		return HttpResult.ok(token);
 	}
-*/
 
 }

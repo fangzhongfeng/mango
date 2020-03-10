@@ -1,15 +1,9 @@
 package com.louis.mango.admin.controller;
 
-import java.io.File;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
-import com.louis.mango.admin.util.PasswordUtils;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.louis.mango.admin.constant.SysConstants;
 import com.louis.mango.admin.model.SysUser;
 import com.louis.mango.admin.service.SysUserService;
-import com.louis.mango.common.utils.FileUtils;
+import com.louis.mango.admin.util.PasswordUtils;
 import com.louis.mango.core.http.HttpResult;
 import com.louis.mango.core.page.PageRequest;
 
@@ -30,13 +24,13 @@ import com.louis.mango.core.page.PageRequest;
  * @date Jan 13, 2019
  */
 @RestController
-@Api("用户")
 @RequestMapping("user")
 public class SysUserController {
 
 	@Autowired
 	private SysUserService sysUserService;
 	
+	@PreAuthorize("hasAuthority('sys:user:add') AND hasAuthority('sys:user:edit')")
 	@PostMapping(value="/save")
 	public HttpResult save(@RequestBody SysUser record) {
 		SysUser user = sysUserService.findById(record.getId());
@@ -67,6 +61,7 @@ public class SysUserController {
 		return HttpResult.ok(sysUserService.save(record));
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:delete')")
 	@PostMapping(value="/delete")
 	public HttpResult delete(@RequestBody List<SysUser> records) {
 		for(SysUser record:records) {
@@ -78,31 +73,28 @@ public class SysUserController {
 		return HttpResult.ok(sysUserService.delete(records));
 	}
 	
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@GetMapping(value="/findByName")
-	public HttpResult findByName(@RequestParam String name) {
+	public HttpResult findByUserName(@RequestParam String name) {
 		return HttpResult.ok(sysUserService.findByName(name));
 	}
 	
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@GetMapping(value="/findPermissions")
 	public HttpResult findPermissions(@RequestParam String name) {
 		return HttpResult.ok(sysUserService.findPermissions(name));
 	}
 	
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@GetMapping(value="/findUserRoles")
 	public HttpResult findUserRoles(@RequestParam Long userId) {
 		return HttpResult.ok(sysUserService.findUserRoles(userId));
 	}
 
+	@PreAuthorize("hasAuthority('sys:user:view')")
 	@PostMapping(value="/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(sysUserService.findPage(pageRequest));
-	}
-	@ApiOperation(value = "导出用户Excel")
-	@ApiImplicitParam(name="pageRequest",value ="封装好的请求参数")
-	@PostMapping(value="/exportExcelUser")
-	public void exportExcelUser(@RequestBody PageRequest pageRequest, HttpServletResponse res) {
-		File file = sysUserService.createUserExcelFile(pageRequest);
-		FileUtils.downloadFile(res, file, file.getName());
 	}
 	
 }
