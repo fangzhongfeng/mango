@@ -9,6 +9,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.louis.mango.common.utils.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,6 @@ import com.louis.mango.admin.service.SysUserService;
 import com.louis.mango.admin.util.PasswordUtils;
 import com.louis.mango.admin.util.SecurityUtils;
 import com.louis.mango.admin.vo.LoginBean;
-import com.louis.mango.common.utils.IOUtils;
 import com.louis.mango.core.http.HttpResult;
 
 /**
