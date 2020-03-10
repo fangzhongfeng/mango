@@ -14,6 +14,8 @@
         <module>mango-common</module>
         <module>maogo-core</module>
         <module>mango-back</module>
+        <module>mango-monitor</module>
+        <module>mango-monitor</module>
     </modules>
 
 
