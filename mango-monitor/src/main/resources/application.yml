@@ -3,6 +3,7 @@ server:
 spring:
   application:
     name: mango-monitor
+
 eureka:
   client:
     service-url:
