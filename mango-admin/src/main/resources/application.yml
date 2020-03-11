@@ -1,6 +1,10 @@
 server:
   port: 8001
 spring:
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8000"
   datasource:
     #1.JDBC
     type: com.alibaba.druid.pool.DruidDataSource
@@ -63,7 +67,7 @@ logging:
       louis:
         mango:
           admin:
-             dao: debug
+            dao: debug
 
 
 #pagehelper
@@ -72,3 +76,9 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+#
+management:
+ endpoints:
+   web:
+    exposure:
+      include: "*"
