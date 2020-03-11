@@ -15,6 +15,7 @@
         <module>maogo-core</module>
         <module>mango-back</module>
         <module>mango-monitor</module>
+        <module>maogo-eureka</module>
     </modules>
 
 
