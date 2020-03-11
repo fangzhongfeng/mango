@@ -2,6 +2,8 @@ package com.louis.mango.admin.controller;
 
 import java.util.List;
 
+import com.louis.mango.core.http.HttpResult;
+import com.louis.mango.core.page.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.louis.mango.admin.model.SysConfig;
 import com.louis.mango.admin.service.SysConfigService;
-import com.louis.mango.core.http.HttpResult;
-import com.louis.mango.core.page.PageRequest;
+
 
 /**
  * 系统配置控制器
