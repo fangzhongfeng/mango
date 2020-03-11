@@ -1,10 +1,15 @@
 server:
   port: 8001
+
+
 spring:
   boot:
     admin:
       client:
         url: "http://localhost:8000"
+  application:
+       name: mango-monitor
+
   datasource:
     #1.JDBC
     type: com.alibaba.druid.pool.DruidDataSource
@@ -59,6 +64,13 @@ mybatis:
   config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
   mapper-locations: classpath:sqlmap/*.xml # 配置 Mapper XML 地址
   type-aliases-package: com.louis.mango.admin.model # 配置数据库实体包路径
+
+
+#注册配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
 
 #开发的时候用的sql语句在控制台打印
 logging:
