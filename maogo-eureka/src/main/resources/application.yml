@@ -7,4 +7,13 @@ eureka:
     fetch-registry: false
     service-url:
       defaultZone: http://localhost:8080/eureka/
-
+  instance:
+    # eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒
+    lease-renewal-interval-in-seconds: 10
+    # Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+    lease-expiration-duration-in-seconds: 30
+  server:
+   #自我保护模式关闭
+   enable-self-preservation: false
+   # 每隔 4 秒清理服务列表 （默认值 60*1000 是1分钟）
+   eviction-interval-timer-in-ms: 3000
