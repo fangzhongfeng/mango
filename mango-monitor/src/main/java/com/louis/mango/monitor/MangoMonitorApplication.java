@@ -11,7 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author Louis
  * @date Jan 15, 2019
  */
-
+@EnableAdminServer
 @EnableDiscoveryClient
 @SpringBootApplication
 public class MangoMonitorApplication {
