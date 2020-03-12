@@ -16,6 +16,7 @@
         <module>mango-back</module>
         <module>mango-monitor</module>
         <module>maogo-eureka</module>
+        <module>mango-producer</module>
     </modules>
 
 
@@ -37,6 +38,12 @@
                 <version>2.1.1.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>2.1.0</version>
             </dependency>
 
             <!-- swagger -->
