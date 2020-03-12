@@ -17,3 +17,11 @@ eureka:
    enable-self-preservation: false
    # 每隔 4 秒清理服务列表 （默认值 60*1000 是1分钟）
    eviction-interval-timer-in-ms: 3000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
