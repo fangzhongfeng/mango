@@ -1,0 +1,67 @@
+#springgateway
+server.port: 8601
+spring:
+  application:
+    name: mango-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: maogo-consumer
+          uri: lb://maogo-consumer
+          order: 0
+          predicates:
+            - Path=/ribbon/**
+          filters:
+            # 进行token过滤
+           # - TokenAuthenticationFilter
+            #- StripPrefix=1
+            # 熔断降级配置
+            - name: Hystrix
+              args:
+                name: default
+                fallbackUri: 'forward:/defaultfallback'
+
+
+
+
+#注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    prefer-ip-address: true
+    health-check-url-path: /actuator/health
+
+
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# 打印网关日志信息
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+
+
+
+
+# Hystrix 配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+  shareSecurityContext: true
