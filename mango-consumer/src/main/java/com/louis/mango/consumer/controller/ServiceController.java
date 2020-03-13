@@ -33,9 +33,23 @@ public class ServiceController {
           return  callMess;
     }
 
+
+
     @RequestMapping("/ribbon/hello2")
     public   String call2(){
         String hello = mangoProducerService.hello();
         return hello;
+    }
+
+
+    @RequestMapping("/ribbon/timeout")
+    public String timeout(){
+        try{
+            //睡5秒，网关Hystrix3秒超时，会触发熔断降级操作
+            Thread.sleep(5000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "timeout";
     }
 }

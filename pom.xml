@@ -18,6 +18,8 @@
         <module>maogo-eureka</module>
         <module>mango-producer</module>
         <module>mango-consumer</module>
+        <module>mango-hystrix</module>
+        <module>mango-springgateway</module>
     </modules>
 
 
