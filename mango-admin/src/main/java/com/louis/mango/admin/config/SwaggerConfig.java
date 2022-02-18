@@ -14,6 +14,8 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -28,6 +30,7 @@ public class SwaggerConfig {
     @Bean
     public Docket createRestApi(){
     	// 添加请求参数，我们这里把token作为请求头部参数传入后端
+	  
 		ParameterBuilder parameterBuilder = new ParameterBuilder();  
 		List<Parameter> parameters = new ArrayList<Parameter>();  
 		parameterBuilder.name("token").description("令牌")
