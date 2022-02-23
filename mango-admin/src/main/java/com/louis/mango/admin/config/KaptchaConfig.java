@@ -34,7 +34,7 @@ public class KaptchaConfig {
     }
     
         @Bean
-    public DefaultKaptcha producer2) {
+    public DefaultKaptcha producer2() {
 
 
 
