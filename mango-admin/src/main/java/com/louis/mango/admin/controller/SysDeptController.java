@@ -23,6 +23,8 @@ import com.louis.mango.core.http.HttpResult;
 @RequestMapping("dept")
 public class SysDeptController {
 
+
+
 	@Autowired
 	private SysDeptService sysDeptService;
 	
@@ -38,9 +40,14 @@ public class SysDeptController {
 		return HttpResult.ok(sysDeptService.delete(records));
 	}
 
+
+	
 	@PreAuthorize("hasAuthority('sys:dept:view')")
 	@GetMapping(value="/findTree")
 	public HttpResult findTree() {
+		System.out.println("231312");
+
+		
 		return HttpResult.ok(sysDeptService.findTree());
 	}
 

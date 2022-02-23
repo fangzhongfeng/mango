@@ -18,6 +18,11 @@ public class KaptchaConfig {
 
     @Bean
     public DefaultKaptcha producer() {
+
+
+
+        String str="111";
+        String str11="1111111";
         Properties properties = new Properties();
         properties.put("kaptcha.border", "no");
         properties.put("kaptcha.textproducer.font.color", "black");
